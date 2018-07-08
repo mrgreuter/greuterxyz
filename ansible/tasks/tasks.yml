@@ -1,0 +1,14 @@
+---
+- name: update apt cache
+  apt: update_cache=yes
+- name: install software packages
+  apt: name={{ item }}
+  with_items:
+    - apache2
+    - mysql
+    - php7.1
+    - php7.1-mysql
+    - php7.1-mbstring
+    - php7.1-intl
+    - nodejs
+    - npm

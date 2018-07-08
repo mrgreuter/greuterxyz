@@ -1,0 +1,6 @@
+---
+- hosts: vorder
+  become: true
+  tasks:
+    - include_vars: "vars/vars.yml"
+    - include_tasks: "tasks/tasks.yml"
