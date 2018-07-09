@@ -1,5 +1,5 @@
 ---
-- hosts: vorder
+- hosts: all
   become: true
   tasks:
     - include_vars: "vars/vars.yml"

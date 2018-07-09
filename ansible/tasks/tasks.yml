@@ -1,14 +1,24 @@
 ---
+- name: add dev user
+  user:
+    state: present
+    name: dev
+    password: dev
+    shell: /bin/bash
 - name: update apt cache
   apt: update_cache=yes
 - name: install software packages
-  apt: name={{ item }}
+  apt: name={{ item }} state=latest
   with_items:
     - apache2
-    - mysql
-    - php7.1
-    - php7.1-mysql
-    - php7.1-mbstring
-    - php7.1-intl
+    - mysql-server
+    - php
+    - php-mysql
+    - php-mbstring
+    - php-intl
     - nodejs
     - npm
+- name: activate apache userdir module
+  apache2_module:
+    state: present
+    name: userdir
